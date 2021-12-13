@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка</title>
+</head>
+
+<body>
+    <h1>Здесь Вы можете загрузить изображение</h1>
+
+    <form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">добавить</button>
+    </form>
+</body>
+
+</html>

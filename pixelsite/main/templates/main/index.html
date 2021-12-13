@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="shortcut icon" href="{% static 'main/images/f.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <h1>Главная страница</h1>
+    <ul>
+        {% for d in data %}
+        <li>
+            <h2>Категория: {{ d.title }}</h2>
+            {% if d.image %}
+                <p><img src="{{d.image.url}}"></p>
+            {% endif %}
+            <hr>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
