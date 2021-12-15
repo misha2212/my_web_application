@@ -27,8 +27,8 @@ def addpage(request):
 
 def pix(request):
     data_1 = BaseImages.objects.all()
-    direct = str(data_1[6].image)
-    SOURCE_DIR = 'C:/Users/Настя/Desktop/29_11_21/pixelsite/media/'
+    direct = str(data_1[-1].image)
+    SOURCE_DIR = 'media/'
     img = Image.open(SOURCE_DIR + direct)
     black = 0
     white = 0
