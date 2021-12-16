@@ -45,3 +45,12 @@ def pix(request):
             other += 1
     return render(request, 'main/pix.html', {'white': white})
 
+
+def hex(request):
+    if request.method == 'POST':
+        a = request.POST.__getitem__('hexi')
+    else:
+        a = 3
+
+    return render(request, 'main/hex.html', {'a': a},)
+
