@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>heximal</title>
+</head>
+<body>
+    <h1>Задайте hex код цвета через #</h1>
+
+    <form action="{% url 'hex' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+<!--        {{ form.as_p }}-->
+        <input type="text" value="#" name="hexi">
+        <button type="submit">добавить</button>
+    </form>
+
+    <p>Выбранный вами код цвета: {{ a }}</p>
+    <p>Количество на изображении пикселей данного цвета: {{ color }}</p>
+</body>
+</html>
