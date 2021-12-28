@@ -8,12 +8,13 @@
 
 <body>
     <h1>Здесь Вы можете загрузить изображение</h1>
-
+    <div>
     <form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">добавить</button>
+        <input type="submit" value="Загрузить"><input type="reset" value="Очистить форму">
     </form>
+    </div>
 </body>
 
 </html>

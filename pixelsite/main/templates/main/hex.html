@@ -9,9 +9,8 @@
 
     <form action="{% url 'hex' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-<!--        {{ form.as_p }}-->
         <input type="text" value="#" name="hexi">
-        <button type="submit">добавить</button>
+        <input type="submit" value="Искать цвет"><input type="reset" value="Очистить форму">
     </form>
 
     <p>Выбранный вами код цвета: {{ a }}</p>

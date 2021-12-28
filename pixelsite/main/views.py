@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageColor
 from django.shortcuts import render, redirect
 
 from main.forms import AddPostForm
@@ -32,25 +32,38 @@ def pix(request):
     img = Image.open(SOURCE_DIR + direct)
     black = 0
     white = 0
-    grey = 0
-    other = 0
+    result = ''
     for pixel in img.getdata():
         if pixel == (0, 0, 0):
             black += 1
         if pixel == (255, 255, 255):
             white += 1
-        if pixel == (128, 128, 128):
-            grey += 1
-        else:
-            other += 1
-    return render(request, 'main/pix.html', {'white': white})
+    if white > black:
+        result = 'белых пикселей больше, чем черных'
+    elif white < black:
+        result = 'белых пикселей меньше, чем черных'
+    return render(request, 'main/pix.html', {'white': white, 'black': black, 'result': result})
 
 
 def hex(request):
     if request.method == 'POST':
         a = request.POST.__getitem__('hexi')
+        data_1 = BaseImages.objects.last()
+        direct = str(data_1.image)
+        SOURCE_DIR = 'media/'
+        img = Image.open(SOURCE_DIR + direct)
+        color = 0
+        b = ImageColor.getrgb(a)
+        print(b)
+        for pixel in img.getdata():
+            if pixel == b:
+                color += 1
+        print(color)
     else:
-        a = 3
+        a = ''
+        color = ''
+    return render(request, 'main/hex.html', {'a': a, 'color': color})
 
-    return render(request, 'main/hex.html', {'a': a},)
 
+def learn(request):
+    return render(request, 'main/learn.html',)
