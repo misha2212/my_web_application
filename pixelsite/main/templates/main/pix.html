@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Пиксели</title>
-</head>
-<body>
-<p>Белых пикселей на изображении: {{ white }}</p>
-<p>Черных пикселей на изображении: {{ black }}</p>
-<p>Результат: {{ result }}</p>
+{% extends 'main/base.html' %}
 
-</body>
-</html>
+{% block title %}
+Ч./б. пиксели
+{% endblock %}
+
+
+{% block content %}
+<div class="posts">
+    <div class="posts_text">
+    <p>Проведен анализ Вашего изображения:</p>
+    <p>Белых пикселей на изображении: {{ white }}</p>
+    <p>Черных пикселей на изображении: {{ black }}</p>
+    <p>Результат: {{ result }}</p>
+    </div>
+</div>
+{% endblock %}
+
+
+

@@ -1,44 +1,23 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
-    <link rel="shortcut icon" href="{% static 'main/images/f.ico' %}" type="image/x-icon">
-</head>
+{% extends 'main/base.html' %}
 
-<body>
-    <div>
-        <h1 align="center">Исследуй изображение по пикселям</h1>
-        <p>Данное веб-приложение позволит Вам происследовать желаемое изображение <b>по пикселям</b>, а именно: найти
-        количество <i>чёрных и белых пикселей</i>, а так же <i>задать в поиске</i> желаемый код цвета в
-        шестнадцатиричном формате <i>(hex код)</i> и узнать количество пикселей выбранного цвета. Просто
-        <b>загрузите</b> изображение и начинайте исследовать!
-        </p>
-    </div>
+{% block title %}
+Главная страница
+{% endblock %}
 
-    <div>
-        <p>Меню</p>
-        <ul type="circle">
-        <li><a href=" ">Главная страница</a>
-        <li><a href="add/">Загрузить изображение</a>
-        <li><a href="pix/">Чёрные и белые пиксели</a>
-        <li><a href="hex/">Задать hex код цвета</a>
-        </ul>
-    </div>
 
-    <div>
+{% block content %}
+<div class="posts">
     <ul>
-        {% for d in data %}
-        <li>
-            <h2>Категория: {{ d.title }}</h2>
-            {% if d.image %}
-                <p><img src="{{d.image.url}}"></p>
-            {% endif %}
-            <hr>
-        </li>
-        {% endfor %}
+    {% for d in data %}
+    <li>
+        <h2>Категория: {{ d.title }}</h2>
+        {% if d.image %}
+        <p><img src="{{d.image.url}}"></p>
+        {% endif %}
+        <hr>
+    </li>
+    {% endfor %}
     </ul>
-    </div>
-</body>
-</html>
+</div>
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link type="text/css" rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+<!--весь макет страницы-->
+<div class="wrapper">
+<!--    Вся инфа на странице-->
+    <div class="page">
+        <div class="header">
+            <div class="header_text">
+                <p>Данное веб-приложение позволит Вам происследовать желаемое изображение <b>по пикселям</b>, а именно:
+                    найти количество <i>чёрных и белых пикселей</i>, а так же <i>задать в поиске</i> желаемый код цвета
+                    в шестнадцатиричном формате <i>(hex код)</i> и узнать количество пикселей выбранного цвета. Просто
+                    <b>загрузите</b> изображение и начинайте исследовать!
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="menu"><a href="/ "><div class="menu_text">Главная страница</div></a></div>
+            <div class="menu"><a href="/add/"><div class="menu_text">Загрузить изображение</div></a></div>
+            <div class="menu"><a href="/pix/"><div class="menu_text">Черные и белые пиксели</div></a></div>
+            <div class="menu"><a href="/hex/"><div class="menu_text">Задать hex код цвета</div></a></div>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+<!--    Часть страницы с авторскими правами и официозом-->
+    <div class="footer">
+        <p>&copy; Все права защищены.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
